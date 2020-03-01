@@ -7,7 +7,7 @@ import CartItem from "../cart-item/cart-item.components.jsx";
 
 import "./cart-dropdown.styles.scss";
 
-const CartDropdown = cartItems => (
+const CartDropdown = ({ cartItems }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {cartItems.map(item => (
