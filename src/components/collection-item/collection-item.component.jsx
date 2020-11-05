@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 
 import CustomButton from "../custom-button/custom-button.component.jsx";
 import { addItem } from "../../redux/cart/cart.action.js";
+import { createStructuredSelector } from 'reselect';
+
 
 import "./collection-item.styles.scss";
+import { selectCartItems } from "../../redux/cart/cart.selector.js";
 
 const CollectionItem = ({ item, addItem, cartItems }) => {
   const { id, name, price, imageUrl } = item;
@@ -13,7 +16,7 @@ const CollectionItem = ({ item, addItem, cartItems }) => {
       <div
         className="image"
         style={{
-          backgroundImage: `url(${imageUrl})`
+          backgroundImage: `url(${imageUrl})`,
         }}
       />
       <div className="collection-footer">
@@ -27,10 +30,10 @@ const CollectionItem = ({ item, addItem, cartItems }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
 });
-const mapStateToProps = state => ({
-  cartItems: state.cart.cartItems
+const mapStateToProps = createStructuredSelector ({
+  cartItems: selectCartItems,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);
