@@ -2,10 +2,14 @@ import React from 'react';
 
 import './checkout.styles.scss';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { selectCartItems,selectCartTotal } from '../../redux/cart/cart.selector'
+import { selectCartItems,selectCartTotal } from '../../redux/cart/cart.selector';
 
-const CheckoutPage = ({cartItems,total}) =>(
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import CustomButton from '../../components/custom-button/custom-button.component';
+
+const CheckoutPage = ({cartItems,total,history}) =>(
     <div className='checkout-page'>
         <div className='checkout-header'>
             <div className='header-block'>
@@ -24,9 +28,20 @@ const CheckoutPage = ({cartItems,total}) =>(
                 <span>remove</span>
             </div>
         </div>
+        
         {
-            cartItems.map(cartItem=>cartItem.name)
+            cartItems.length
+            ?cartItems.map(cartItem=>(
+                <CheckoutItem key={cartItem.id} cartItem={cartItem}/>
+            ))
+            :(
+                <div className='empty'>
+                    <span className="empty-checkout">No Items To Show!!!</span>
+                    <CustomButton onClick={() => history.push('/')}>Add Item</CustomButton>
+                </div>
+            )
         }
+
         <div className='total'>
             <span>TOTAL: ${total}</span>
         </div>
@@ -38,4 +53,4 @@ const mapStateToProps = createStructuredSelector({
     total: selectCartTotal
 })
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default withRouter(connect(mapStateToProps)(CheckoutPage));

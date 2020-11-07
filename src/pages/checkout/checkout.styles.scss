@@ -23,6 +23,15 @@
     }
   }
 
+  .empty {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .empty-checkout {
+    font-size: 30px;
+    margin: 30px;
+  }
   .total {
     margin-top: 30px;
     margin-left: auto;
