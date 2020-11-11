@@ -14,5 +14,20 @@ export const selectCollectionForOverView = createSelector(
 
 export const selectCollection = collectionUrlParam =>createSelector(
     [selectShopCollection],
-    collections => collections?collections[collectionUrlParam]:null
+    collections => (collections ? collections[collectionUrlParam]: null)
+)
+
+export const selectCollectionFetching =createSelector(
+    [selectShop],
+    shop => shop.isFetching
+)
+
+export const selectCollectionErrorMsg =createSelector(
+    [selectShop],
+    shop => shop.errorMsg
+)
+
+export const selectIsCollectionLoaded =createSelector(
+    [selectShop],
+    shop => !!shop.collections
 )

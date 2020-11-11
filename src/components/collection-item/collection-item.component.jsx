@@ -9,8 +9,8 @@ import { createStructuredSelector } from 'reselect';
 import "./collection-item.styles.scss";
 import { selectCartItems } from "../../redux/cart/cart.selector.js";
 
-const CollectionItem = ({ item, addItem, cartItems }) => {
-  const { id, name, price, imageUrl } = item;
+const CollectionItem = ({ item, addItem }) => {
+  const { name, price, imageUrl } = item;
   return (
     <div className="collection-item">
       <div
