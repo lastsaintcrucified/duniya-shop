@@ -14,6 +14,7 @@ const INITIAL_STATE = {
     switch(action.type){
         case ShopActionTypes.FETCH_COLLECTION_START:
             return {
+                ...state,
                 isFetching:true
             }
         case ShopActionTypes.FETCH_COLLECTION_SUCCESS:

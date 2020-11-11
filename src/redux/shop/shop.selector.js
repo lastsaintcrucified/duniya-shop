@@ -14,7 +14,7 @@ export const selectCollectionForOverView = createSelector(
 
 export const selectCollection = collectionUrlParam =>createSelector(
     [selectShopCollection],
-    collections => (collections ? collections[collectionUrlParam]: null)
+    collections => collections ? collections[collectionUrlParam]: null
 )
 
 export const selectCollectionFetching =createSelector(
