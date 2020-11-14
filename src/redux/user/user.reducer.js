@@ -2,13 +2,18 @@ import userActionTypes from "./user.types.js";
 
 const INITIAL_STATE = {
   currentUser: null,
-  isLoading: true,
+  isLoading: false,
   error:''
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case userActionTypes.CHECK_USER_SESSION:
+      return {
+        ...state,
+        isLoading: false
+      };
+       case userActionTypes.CHECK_USER_SESSION:
       return {
         ...state,
         isLoading: true
@@ -30,6 +35,13 @@ const userReducer = (state = INITIAL_STATE, action) => {
         currentUser:null,
         isLoading:false
       }
+    case userActionTypes.SIGN_UP_SUCCESS:
+      return{
+        ...state,
+        currentUser:action.payload,
+        isLoading:false
+      }
+    case userActionTypes.SIGN_UP_FAILURE:
     case userActionTypes.SIGN_OUT_FAILURE:
     case userActionTypes.SIGN_IN_FAILURE:
       return{
