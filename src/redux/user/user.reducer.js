@@ -8,16 +8,6 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case userActionTypes.CHECK_USER_SESSION:
-      return {
-        ...state,
-        isLoading: false
-      };
-       case userActionTypes.CHECK_USER_SESSION:
-      return {
-        ...state,
-        isLoading: true
-      };
     case userActionTypes.SIGN_IN_SUCCESS:
       return{
         ...state,

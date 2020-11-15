@@ -54,6 +54,3 @@ export const signUpFailure = error =>({
   type:userActionTypes.SIGN_UP_FAILURE,
   payload:error
 })
-export const isLoadingStop=()=>({
-  type:userActionTypes.IS_LOADING
-})
