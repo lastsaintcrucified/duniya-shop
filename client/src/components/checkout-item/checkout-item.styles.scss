@@ -26,14 +26,22 @@
       height: 100%;
     }
   }
-  .name,
+  .name {
+    width: 22%;
+    @media screen and (max-width: 813px) {
+      font-size: 0.8em;
+    }
+  }
   .quantity,
   .price {
     width: 23%;
   }
 
   .quantity {
-    padding-left: 20px;
+    padding-left: 10px;
+    @media screen and (max-width: 813px) {
+      padding-left: 0px;
+    }
   }
 
   .remove-button {

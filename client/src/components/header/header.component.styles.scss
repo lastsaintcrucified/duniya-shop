@@ -9,6 +9,9 @@
     height: 100%;
     width: 70px;
     padding: 25px;
+    @media screen and (max-width: 813px) {
+      margin-bottom: 10px;
+    }
   }
 
   .options {

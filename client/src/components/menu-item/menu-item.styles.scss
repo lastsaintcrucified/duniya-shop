@@ -8,6 +8,9 @@
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+  @media screen and (max-width: 813px) {
+    height: 30vh;
+  }
   &:hover {
     cursor: pointer;
 
@@ -28,6 +31,9 @@
 
   &.large {
     height: 380px;
+    @media screen and (max-width: 813px) {
+      height: 30vh;
+    }
   }
 
   &:first-child {
@@ -50,6 +56,9 @@
     opacity: 0.8;
     border-color: black 1px;
     position: absolute;
+    @media screen and (max-width: 813px) {
+      width: 35%;
+    }
 
     .title {
       font-weight: bold;

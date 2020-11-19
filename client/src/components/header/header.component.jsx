@@ -21,9 +21,6 @@ const Header = ({ currentUser, isLoading, hidden,signOutStart }) => (
       <Link className="option" to="/shop">
         SHOP
       </Link>
-      <Link className="option" to="/shop">
-        CONTACTS
-      </Link>
       {isLoading ? (
         <Loader />
       ) : currentUser ? (
