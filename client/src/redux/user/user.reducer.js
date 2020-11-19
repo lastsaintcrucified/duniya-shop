@@ -38,6 +38,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         error:action.payload
       }
+    case userActionTypes.CHECK_USER_SESSION:
+      return{
+        ...state,
+        isLoading:true
+      }
     default:
       return state;
   }

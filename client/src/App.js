@@ -32,15 +32,13 @@ const App = ({checkUserSession,currentUser}) => {
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<Loader/>}>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/shop" component={ShopPage} />
-              <Route exact path='/checkout' component={CheckoutPage} />
+              <Route exact path="/" component={currentUser?HomePage:SignInAndSignUp} />
+              <Route path="/shop" component={currentUser?ShopPage:SignInAndSignUp} />
+              <Route exact path='/checkout' component={currentUser?CheckoutPage:SignInAndSignUp} />
               <Route
                 exact
                 path="/signin"
-                render={() =>
-                  currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
-                }
+                component={SignInAndSignUp}
               />
             </Suspense>
           </ErrorBoundary>
