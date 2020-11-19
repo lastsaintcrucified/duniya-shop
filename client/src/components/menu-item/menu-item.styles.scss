@@ -57,7 +57,8 @@
     border-color: black 1px;
     position: absolute;
     @media screen and (max-width: 813px) {
-      width: 35%;
+      width: 30%;
+      padding: 0px;
     }
 
     .title {
@@ -65,11 +66,17 @@
       margin-bottom: 6px;
       font-size: 22px;
       color: #4a4a4a;
+      @media screen and (max-width: 813px) {
+        font-size: 18px;
+      }
     }
 
     .subtitle {
       font-weight: lighter;
       font-size: 16px;
+      @media screen and (max-width: 813px) {
+        font-size: 14px;
+      }
     }
   }
 }

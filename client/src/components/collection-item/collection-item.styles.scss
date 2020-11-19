@@ -23,6 +23,9 @@
     position: absolute;
     top: 255px;
     display: none;
+    @media screen and (max-width: 813px) {
+      top: 200px;
+    }
   }
   &:hover {
     .image {
