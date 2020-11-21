@@ -8,7 +8,7 @@ import "./index.css";
 
 import App from "./App";
 import {store,persistor }from "./redux/store.js";
-
+import * as serviceWorker from "./serviceWorker.js";
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -19,3 +19,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+serviceWorker.register();

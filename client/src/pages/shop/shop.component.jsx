@@ -17,7 +17,7 @@ const ShopPage = ({fetchCollectionStart,match}) =>{
  
       return (
         <div className="shop-page">
-          <Suspense fallback={Loader}>
+          <Suspense fallback={<Loader/>}>
             <Route exact path={`${match.path}`} component={CollectionOverviewContainer}/>
             <Route exact path={`${match.path}/:collectionId`} component={CollectionPageContainer}/>
           </Suspense>

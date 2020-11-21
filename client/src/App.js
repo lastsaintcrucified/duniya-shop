@@ -1,5 +1,5 @@
 import React, { useEffect,lazy,Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from 'reselect';
 
@@ -32,7 +32,7 @@ const App = ({checkUserSession,currentUser}) => {
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<Loader/>}>
-              <Route exact path="/" component={currentUser?HomePage:SignInAndSignUp} />
+              <Route exact path="/" component={HomePage} />
               <Route path="/shop" component={currentUser?ShopPage:SignInAndSignUp} />
               <Route exact path='/checkout' component={currentUser?CheckoutPage:SignInAndSignUp} />
               <Route

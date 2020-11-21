@@ -1,7 +1,7 @@
 import {takeLatest, all, call, put} from "redux-saga/effects";
 import userActionTypes from "./user.types.js";
 import {auth, googleProvider, createUserProfileDocument,getCurrentUser} from "../../firebase/firebase.utils.js";
-import {signInSuccess,signInFailure, signOutSuccess, signOutFailure, signUpFailure, signUpSuccess} from "./user.action.js"
+import {signInSuccess,signInFailure, signOutSuccess, signOutFailure, signUpFailure, signUpSuccess, checkUserSessionEnd} from "./user.action.js"
 
 
 export function* getSnapshotFromUserAuth(userAuth){
@@ -52,7 +52,7 @@ export function* isUserAuthenticated(){
     try{
         const userAuth = yield getCurrentUser();
         if(!userAuth) return;
-        yield getSnapshotFromUserAuth(userAuth)
+        yield getSnapshotFromUserAuth(userAuth);
     }catch(error){
         yield put(signInFailure(error.message))
     }
