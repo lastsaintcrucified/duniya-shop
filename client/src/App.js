@@ -11,7 +11,7 @@ import ErrorBoundary from "./components/error-boundary/error-boundary.component.
 
 import {checkUserSession} from "./redux/user/user.action.js";
 import { selectCurrentUser } from "./redux/user/user.selector";
-
+ 
 const HomePage = lazy(()=>import("./pages/homepage/hompage.component"));
 const ShopPage = lazy(()=>import("./pages/shop/shop.component.jsx"));
 const CheckoutPage = lazy(()=>import('./pages/checkout/checkout.component'));
@@ -19,10 +19,10 @@ const SignInAndSignUp = lazy(()=>import("./pages/sign-in-and-sign-up/sign-in-and
 
 
 
-const App = ({checkUserSession,currentUser}) => {
+const App = ({checkUserSession,currentUser,cartItems}) => {
 
   useEffect(() => {
-    checkUserSession();
+    checkUserSession();   
   }, [checkUserSession])
 
     return (

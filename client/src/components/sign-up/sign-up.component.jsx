@@ -8,7 +8,7 @@ import CustomButton from "../custom-button/custom-button.component.jsx";
 
 import {signUpStart} from "../../redux/user/user.action.js";
 
-const SignUp =({signUpStart})=> {
+const SignUp =({signUpStart,history})=> {
   
     const [credintials,setCredintials] = useState({
       displayName: "",
@@ -24,6 +24,7 @@ const SignUp =({signUpStart})=> {
       return;
     }
     signUpStart({email,password,displayName});
+
   };
   const handleChange = e => {
     const { name, value } = e.target;

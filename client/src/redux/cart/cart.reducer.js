@@ -3,6 +3,7 @@ import { addItemToCart,clearItemFromCart,removeItemFromCart } from "./cart.utils
 
 const INITIAL_STATE = {
   hidden: true,
+  isFetching:false,
   cartItems: []
 };
 
