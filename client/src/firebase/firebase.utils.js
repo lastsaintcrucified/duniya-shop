@@ -1,7 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import {checkUserSessionEnd} from "../redux/user/user.action";
 
 const config = {
   apiKey: "AIzaSyAovSNBc9VnB1_EzKCV7aIuO_eOiTZI5KU",

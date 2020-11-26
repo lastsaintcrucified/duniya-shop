@@ -1,8 +1,8 @@
 import {takeLatest, all, call, put} from "redux-saga/effects";
 import userActionTypes from "./user.types.js";
 import {auth, googleProvider, createUserProfileDocument,getCurrentUser} from "../../firebase/firebase.utils.js";
-import {signInSuccess,signInFailure, signOutSuccess, signOutFailure, signUpFailure, signUpSuccess, checkUserSessionEnd} from "./user.action.js"
-
+import {signInSuccess,signInFailure, signOutSuccess, signOutFailure, signUpFailure, signUpSuccess} from "./user.action.js"
+import {fetchCartItemStart} from "../cart/cart.action.js";
 
 export function* getSnapshotFromUserAuth(userAuth){
     try{
@@ -12,6 +12,7 @@ export function* getSnapshotFromUserAuth(userAuth){
         id:userSnapshot.id,
         ...userSnapshot.data()
     }))
+        yield put(fetchCartItemStart(userSnapshot))
     }catch(error){
         yield put(signInFailure(error))
     }

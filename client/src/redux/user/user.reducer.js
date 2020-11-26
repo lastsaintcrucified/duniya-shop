@@ -43,11 +43,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading:true
       }
-    case userActionTypes.CHECK_USER_SESSION_END:
-      return{
-        ...state,
-        isLoading:false
-      }
     default:
       return state;
   }

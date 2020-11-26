@@ -4,7 +4,8 @@ import { addItemToCart,clearItemFromCart,removeItemFromCart } from "./cart.utils
 const INITIAL_STATE = {
   hidden: true,
   isFetching:false,
-  cartItems: []
+  cartItems: [],
+  error:""
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -19,21 +20,32 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload)
       };
+      case cartActionTypes.FETCH_CART_ITEM_SUCCESS:
+        return {
+          ...state,
+          cartItems:action.payload
+        }
       case cartActionTypes.CLEAR_ITEM:
-      return {
-        ...state,
-        cartItems: clearItemFromCart(state.cartItems, action.payload)
-      };
+        return {
+          ...state,
+          cartItems: clearItemFromCart(state.cartItems, action.payload)
+        };
       case cartActionTypes.REMOVE_ITEM:
-      return {
-        ...state,
-        cartItems: removeItemFromCart(state.cartItems, action.payload)
-      };
+        return {
+          ...state,
+          cartItems: removeItemFromCart(state.cartItems, action.payload)
+        };
       case cartActionTypes.CLEAR_CART:
-      return {
-        ...state,
-        cartItems: []
-      };
+        return {
+          ...state,
+          cartItems: []
+        };
+      case cartActionTypes.FETCH_CART_ITEM_FAILURE:
+      case cartActionTypes.UPDATE_CART_ITEM_FAILURE:
+        return {
+          ...state,
+          error:action.payload
+        }
     default:
       return state;
   }

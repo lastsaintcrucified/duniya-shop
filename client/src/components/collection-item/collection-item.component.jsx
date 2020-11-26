@@ -3,15 +3,13 @@ import { connect } from "react-redux";
 
 import CustomButton from "../custom-button/custom-button.component.jsx";
 import { addItem } from "../../redux/cart/cart.action.js";
-import { createStructuredSelector } from 'reselect';
-
 
 import "./collection-item.styles.scss";
-import { selectCartItems } from "../../redux/cart/cart.selector.js";
 
-const CollectionItem = ({ item, addItem }) => {
+
+const CollectionItem = ({ item, addItem}) => {
   const { name, price, imageUrl } = item;
-  return (
+  return(
     <div className="collection-item">
       <div
         className="image"
@@ -23,17 +21,16 @@ const CollectionItem = ({ item, addItem }) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
-      <CustomButton onClick={() => addItem(item)} inverted>
+      <CustomButton onClick={() => {addItem(item)}} inverted>
         ADD TO CART
       </CustomButton>
     </div>
   );
 };
 
+
 const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
+  addItem: (item) => dispatch(addItem(item))
 });
-const mapStateToProps = createStructuredSelector ({
-  cartItems: selectCartItems,
-});
-export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);
+
+export default connect(null,mapDispatchToProps)(CollectionItem);

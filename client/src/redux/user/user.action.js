@@ -27,9 +27,6 @@ export const signInFailure = error =>({
 export const checkUserSession = () =>({
   type:userActionTypes.CHECK_USER_SESSION
 })
-export const checkUserSessionEnd = () =>({
-  type:userActionTypes.CHECK_USER_SESSION_END
-})
 
 export const signOutStart = () =>({
   type:userActionTypes.SIGN_OUT_START

@@ -10,7 +10,10 @@ import Loader from "./components/loader/loader.component.jsx";
 import ErrorBoundary from "./components/error-boundary/error-boundary.component.jsx";
 
 import {checkUserSession} from "./redux/user/user.action.js";
+import { fetchCartItemStart } from "./redux/cart/cart.action.js";
+
 import { selectCurrentUser } from "./redux/user/user.selector";
+
  
 const HomePage = lazy(()=>import("./pages/homepage/hompage.component"));
 const ShopPage = lazy(()=>import("./pages/shop/shop.component.jsx"));
@@ -19,10 +22,10 @@ const SignInAndSignUp = lazy(()=>import("./pages/sign-in-and-sign-up/sign-in-and
 
 
 
-const App = ({checkUserSession,currentUser,cartItems}) => {
+const App = ({checkUserSession,currentUser,fetchCartItemStart}) => {
 
   useEffect(() => {
-    checkUserSession();   
+    checkUserSession();
   }, [checkUserSession])
 
     return (
@@ -52,7 +55,8 @@ const mapStateToProps = createStructuredSelector ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  checkUserSession: () => dispatch(checkUserSession())
+  checkUserSession: () => dispatch(checkUserSession()),
+  fetchCartItemStart:currentUser=>dispatch(fetchCartItemStart(currentUser))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
