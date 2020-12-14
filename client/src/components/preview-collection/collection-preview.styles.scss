@@ -13,9 +13,9 @@
   }
 
   .preview {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
     @media screen and (max-width: 813px) {
       display: grid;
       grid-template-columns: 1fr 1fr;

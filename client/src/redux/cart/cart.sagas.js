@@ -14,7 +14,7 @@ export function* updateCartItemAsync({payload:{cartItems}}){
         const currentUser = yield getCurrentUser();
         
        const snap = yield firestore.collection(`users`).doc(`${currentUser.uid}`);
-       yield snap.update({cartItems})
+       yield snap.update({cartItems});
        yield put(updateCartItemSuccess());
         
        
